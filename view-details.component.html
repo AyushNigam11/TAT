@@ -1,0 +1,544 @@
+<div class="content-page-header">
+    <h5>Broker Request Details</h5>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card-body">
+            <div class="form-group-item">
+                <!-- <div class="col-xl">
+                    <div class="input-block mb-3">
+                        <h5 class="form-title">Profile Picture</h5>
+                        <div class="profile-picture">
+                            <div class="upload-profile">
+                                <div class="profile-img">
+                                    <img id="blah" class="avatar"
+                                        [src]="profImgUrl ? profImgUrl : 'assets/img/profiles/avatar-07.jpg'" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="row" *ngIf="brokerType=='individual' || brokerType=='organization_broker' ">
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="form-group" style="display: flex; flex-direction: column; font-weight: 500;">
+                            <label>Full Name</label>
+                            <input id="label" type="text" class="form-control" [ngModel]="brokerData.fullname"
+                                placeholder="Enter Your Name" disabled>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="form-group" style="display: flex; flex-direction: column; font-weight: 500;">
+                            <label>Trade License Number</label>
+                            <input id="label" type="text" class="form-control" [ngModel]="brokerData.tradeLicenseNumber"
+                                placeholder="RERA registered number" disabled>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="form-group" style="display: flex; flex-direction: column; font-weight: 500;">
+                            <label>Type</label>
+                            <input id="lable" type="text" class="form-control" [ngModel]="brokerData.type"
+                                placeholder="Broker Type" disabled>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="form-group" style="display: flex; flex-direction: column; font-weight: 500;">
+                            <label>Government ID Number</label>
+                            <input id="lable" type="text" class="form-control" [ngModel]="brokerData.govIdNumber"
+                                placeholder="Emirates Id" disabled>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="form-group" style="display: flex; flex-direction: column; font-weight: 500;">
+                            <label>Email Address</label>
+                            <input id="lable" type="text" class="form-control" [ngModel]="brokerData.email"
+                                placeholder="Email" disabled>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="form-group" style="display: flex; flex-direction: column; font-weight: 500;">
+                            <label>Status</label>
+                            <input id="lable" type="text" class="form-control" [ngModel]="brokerData.status"
+                                placeholder="Status" disabled>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="form-group" style="display: flex; flex-direction: column; font-weight: 500;">
+                            <label>Phone Number</label>
+                            <input id="lable" type="text" class="form-control" [ngModel]="brokerData.phone"
+                                placeholder="Phone Number" disabled>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="form-group" style="display: flex; flex-direction: column; font-weight: 500;">
+                            <label>Whatsapp Number</label>
+                            <input id="lable" type="text" class="form-control" [ngModel]="brokerData.whatsAppNumber"
+                                placeholder="WhatsApp Number" disabled>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="form-group" style="display: flex; flex-direction: column; font-weight: 500;">
+                            <label>Landline Number</label>
+                            <input id="lable" type="text" class="form-control" [ngModel]="brokerData.landlineNumber"
+                                placeholder="Landline number" disabled>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="form-group" style="display: flex; flex-direction: column; font-weight: 500;">
+                            <label>Date of Creation</label>
+                            <input id="lable" type="text" class="form-control"
+                                [ngModel]="brokerData.createdAt | date : 'dd MMM, yyyy'" placeholder="Created At"
+                                disabled>
+                        </div>
+                    </div>
+                    <div class="divider">
+                        <h6>
+                            Address Details
+                        </h6>
+                    </div>
+                    <mat-divider class="line"></mat-divider>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="form-group" style="display: flex; flex-direction: column; font-weight: 500;">
+                                <label>Building Name / Number</label>
+                                <!-- <label htmlFor="label">Last Name</label> -->
+                                <input id="label" type="text" class="form-control" [ngModel]="brokerData.addressLine1"
+                                    placeholder="Building name/number" disabled>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="form-group" style="display: flex; flex-direction: column; font-weight: 500;">
+                                <label>City</label>
+                                <!-- <label htmlFor="label">User Name</label> -->
+                                <input id="label" type="text" class="form-control" [ngModel]="brokerData.city"
+                                    placeholder="City" disabled>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="form-group" style="display: flex; flex-direction: column; font-weight: 500;">
+                                <label>State</label>
+                                <!-- <label htmlFor="label">User Name</label> -->
+                                <input id="label" type="text" class="form-control" [ngModel]="brokerData.state"
+                                    placeholder="Distric" disabled>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="form-group" style="display: flex; flex-direction: column; font-weight: 500;">
+                                <label>ZIP / Postal Code PO Box</label>
+                                <!-- <label htmlFor="label">Phone Number</label> -->
+                                <input id="label" type="text" class="form-control" [ngModel]="brokerData.zipCode"
+                                    placeholder="Zip/Postal Code PO Box" name="name" disabled>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="form-group" style="display: flex; flex-direction: column; font-weight: 500;">
+                                <label>Country</label>
+                                <!-- <label htmlFor="label">Phone Number</label> -->
+                                <input id="label" type="text" class="form-control" [ngModel]="brokerData.country"
+                                    placeholder="Country" disabled name="name">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" *ngIf="brokerType=='organization'">
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="form-group" style="display: flex; flex-direction: column; font-weight: 500;">
+                            <label>Broker Company Name</label>
+                            <input id="label" type="text" class="form-control" [ngModel]="brokerData.nameOrg"
+                                placeholder="Company Name" disabled>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="form-group" style="display: flex; flex-direction: column; font-weight: 500;">
+                            <label>Broker RERA License Number</label>
+                            <input id="label" type="text" class="form-control" [ngModel]="brokerData.orgReraNumber"
+                                placeholder="RERA registered number" disabled>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="form-group" style="display: flex; flex-direction: column; font-weight: 500;">
+                            <label>Broker Type</label>
+                            <input id="lable" type="text" class="form-control" [ngModel]="brokerData.type"
+                                placeholder="Broker Type" disabled>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="form-group" style="display: flex; flex-direction: column; font-weight: 500;">
+                            <label>Number of Agents</label>
+                            <input id="lable" type="text" class="form-control" [ngModel]="brokerData.noOfAgent"
+                                placeholder="Number of Agents" disabled>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="form-group" style="display: flex; flex-direction: column; font-weight: 500;">
+                            <label>Broker Email Address</label>
+                            <input id="lable" type="text" class="form-control" [ngModel]="brokerData.orgEmail"
+                                placeholder="Email" disabled>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="form-group" style="display: flex; flex-direction: column; font-weight: 500;">
+                            <label>Broker Status</label>
+                            <input id="lable" type="text" class="form-control" [ngModel]="brokerData.status"
+                                placeholder="Status" disabled>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="form-group" style="display: flex; flex-direction: column; font-weight: 500;">
+                            <label>Phone Number</label>
+                            <input id="lable" type="text" class="form-control" [ngModel]="brokerData.orgPhoneNumber"
+                                placeholder="Phone number" disabled>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="form-group" style="display: flex; flex-direction: column; font-weight: 500;">
+                            <label>WhatsApp Number</label>
+                            <input id="lable" type="text" class="form-control" [ngModel]="brokerData.orgWhatsappNumber"
+                                placeholder="WhatsApp Number" disabled>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="form-group" style="display: flex; flex-direction: column; font-weight: 500;">
+                            <label>Landline Number</label>
+                            <input id="lable" type="text" class="form-control" [ngModel]="brokerData.orgLandlineNumber"
+                                placeholder="Landline number" disabled>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="form-group" style="display: flex; flex-direction: column; font-weight: 500;">
+                            <label>Sector</label>
+                            <input id="lable" type="text" class="form-control" [ngModel]="brokerData.sector"
+                                placeholder="Sector" disabled>
+                        </div>
+                    </div>
+                    <div class="divider">
+                        <h6>
+                            Authorized individual details
+                        </h6>
+                    </div>
+                    <mat-divider class="line"></mat-divider>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="form-group" style="display: flex; flex-direction: column; font-weight: 500;">
+                                <label>Full Name</label>
+                                <!-- <label htmlFor="label">Phone Number</label> -->
+                                <input id="label" type="text" class="form-control" [ngModel]="brokerData.fullname"
+                                    placeholder="Name" name="name" disabled>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="form-group" style="display: flex; flex-direction: column; font-weight: 500;">
+                                <label>Phone Number</label>
+                                <!-- <label htmlFor="label">Phone Number</label> -->
+                                <input id="label" type="text" class="form-control" [ngModel]="brokerData.phone"
+                                    placeholder="Phone Number" disabled name="name">
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="form-group" style="display: flex; flex-direction: column; font-weight: 500;">
+                                <label>Email</label>
+                                <!-- <label htmlFor="label">Phone Number</label> -->
+                                <input id="label" type="text" class="form-control" [ngModel]="brokerData.email"
+                                    placeholder="Email" disabled name="name">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="divider">
+                        <h6>
+                            Company Address Details
+                        </h6>
+                    </div>
+                    <mat-divider class="line"></mat-divider>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="form-group" style="display: flex; flex-direction: column; font-weight: 500;">
+                                <label>Address Line</label>
+                                <!-- <label htmlFor="label">Last Name</label> -->
+                                <input id="label" type="text" class="form-control" [ngModel]="brokerData.addressLine1"
+                                    placeholder="Building name/number" disabled>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="form-group" style="display: flex; flex-direction: column; font-weight: 500;">
+                                <label>City / Province</label>
+                                <!-- <label htmlFor="label">Phone Number</label> -->
+                                <input id="label" type="text" class="form-control" placeholder="City/Province "
+                                    [ngModel]="brokerData.city" disabled name="name">
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="form-group" style="display: flex; flex-direction: column; font-weight: 500;">
+                                <label>District / Area</label>
+                                <!-- <label htmlFor="label">Phone Number</label> -->
+                                <input id="label" type="text" class="form-control" [ngModel]="brokerData.state"
+                                    placeholder="District/Area" name="name" disabled>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="form-group" style="display: flex; flex-direction: column; font-weight: 500;">
+                                <label>ZIP / Postal Code </label>
+                                <!-- <label htmlFor="label">Phone Number</label> -->
+                                <input id="label" type="text" class="form-control" [ngModel]="brokerData.country"
+                                    placeholder="Zip/Postal Code PO Box" name="name" disabled>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="form-group" style="display: flex; flex-direction: column; font-weight: 500;">
+                                <label>Country</label>
+                                <!-- <label htmlFor="label">Phone Number</label> -->
+                                <input id="label" type="number" class="form-control" [ngModel]="brokerData.zipCode"
+                                    placeholder="Country" disabled name="name">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="divider">
+                    <h6>
+                        Bank Details
+                    </h6>
+                </div>
+                <mat-divider class="line"></mat-divider>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="form-group" style="display: flex; flex-direction: column; font-weight: 500;">
+                            <label>Acoount Number</label>
+                            <!-- <label htmlFor="label">Government ID Number</label> -->
+                            <input id="label" type="number" class="form-control" placeholder="Bank A/C Number"
+                                [ngModel]="brokerData.accountNumber" placeholder="Account Number" disabled>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="form-group" style="display: flex; flex-direction: column; font-weight: 500;">
+                            <label>Bank Name</label>
+                            <!-- <label htmlFor="label">User Name</label> -->
+                            <input id="label" type="text" class="form-control" [ngModel]="brokerData.bankName"
+                                placeholder="Bank name" disabled>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="form-group" style="display: flex; flex-direction: column; font-weight: 500;">
+                            <label>Swift Code</label>
+                            <!-- <label htmlFor="label">Phone Number</label> -->
+                            <input id="label" type="text" class="form-control" [ngModel]="brokerData.swiftCode"
+                                placeholder="Swift code" name="name" disabled>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="form-group" style="display: flex; flex-direction: column; font-weight: 500;">
+                            <label>Branch</label>
+                            <!-- <label htmlFor="label">Phone Number</label> -->
+                            <input id="label" type="text" class="form-control" [ngModel]="brokerData.branchCode"
+                                placeholder="Branch" name="name" disabled>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="divider">
+                    <h6>
+                        Documents
+                    </h6>
+                </div>
+                <mat-divider class="line"></mat-divider>
+                <ng-container *ngIf="brokerType=='individual' || brokerType=='organization_broker' ">
+                    <div class="row">
+                        <div class="col-xl">
+                            <div class="input-block mb-7" [ngClass]="brokerData.idProof ? 'on-hover' :''">
+                                <label>ID Proof</label>
+                                <div *ngIf="!brokerData.idProof" class="input-block mb-3 service-upload mb-0">
+                                    <span><img style="height: 50px; width: 100px;" class="avatar-img rounded-circle"
+                                            src="assets/img/icons/drop-icon.svg" alt="upload"></span>
+                                    <h6 class="drop-browse align-center">
+                                    </h6>
+                                    <p class="text-muted">No Data</p>
+                                    <input type="file" multiple="" id="image_sign" disabled>
+                                    <div id="frames"></div>
+
+                                </div>
+                                <div *ngIf="brokerData.idProof" class="input-block mb-3 service-upload mb-0"
+                                    (click)="viewId()">
+                                    <span class="img_wrp"><img class="img" src="assets/img/icons/pdfic.png"
+                                            alt="upload"></span>
+                                    <p class="text-muted viewt">View Document</p>
+                                    <div id="frames"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl">
+                            <div class="input-block mb-3" [ngClass]="brokerData.bankDetails ? 'on-hover' :''">
+                                <label>Bank Details</label>
+                                <div *ngIf="!brokerData.bankDetails" class="input-block mb-3 service-upload mb-0">
+                                    <span><img class="avatar-img rounded-circle" style="height: 50px; width: 100px;"
+                                            src="assets/img/icons/drop-icon.svg" alt="upload"></span>
+                                    <h6 class="drop-browse align-center">
+                                    </h6>
+                                    <p class="text-muted">No Data</p>
+                                    <input type="file" multiple="" id="image_sign" disabled>
+                                    <div id="frames"></div>
+                                </div>
+                                <div *ngIf="brokerData.bankDetails" class="input-block mb-3 service-upload mb-0"
+                                    (click)="viewBank()">
+                                    <span class="img_wrp"><img class="img" src="assets/img/icons/pdfic.png"
+                                            alt="upload"></span>
+                                    <p class="text-muted viewt">View Document</p>
+                                    <div id="frames"></div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="row">
+                        <div class="col-xl">
+                            <div class="input-block mb-7" [ngClass]="brokerData.bankDetails ? 'on-hover' :''">
+                                <label>Valid trade license</label>
+                                <div *ngIf="!brokerData.idProof" class="input-block mb-3 service-upload mb-0">
+                                    <span><img style="height: 50px; width: 100px;" class="avatar-img rounded-circle"
+                                            src="assets/img/icons/drop-icon.svg" alt="upload"></span>
+                                    <h6 class="drop-browse align-center">
+                                    </h6>
+                                    <p class="text-muted">No Data</p>
+                                    <input type="file" multiple="" id="image_sign" disabled>
+                                    <div id="frames"></div>
+
+                                </div>
+                                <div *ngIf="brokerData.idProof" class="input-block mb-3 service-upload mb-0"
+                                    (click)="viewId()">
+                                    <span class="img_wrp"><img class="img" src="assets/img/icons/pdfic.png"
+                                            alt="upload"></span>
+                                    <p class="text-muted viewt">View Document</p>
+                                    <div id="frames"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl">
+                            <div class="input-block mb-3" [ngClass]="brokerData.bankDetails ? 'on-hover' :''">
+                                <label>Valid RERA Certificate </label>
+                                <div *ngIf="!brokerData.bankDetails" class="input-block mb-3 service-upload mb-0">
+                                    <span><img class="avatar-img rounded-circle" style="height: 50px; width: 100px;"
+                                            src="assets/img/icons/drop-icon.svg" alt="upload"></span>
+                                    <h6 class="drop-browse align-center">
+                                    </h6>
+                                    <p class="text-muted">No Data</p>
+                                    <input type="file" multiple="" id="image_sign" disabled>
+                                    <div id="frames"></div>
+                                </div>
+                                <div *ngIf="brokerData.bankDetails" class="input-block mb-3 service-upload mb-0"
+                                    (click)="viewBank()">
+                                    <span class="img_wrp"><img class="img" src="assets/img/icons/pdfic.png"
+                                            alt="upload"></span>
+                                    <p class="text-muted viewt">View Document</p>
+                                    <div id="frames"></div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div> -->
+                </ng-container>
+                <ng-container *ngIf="brokerType=='organization'">
+                    <div class="row">
+                        <div class="col-xl">
+                            <div class="input-block mb-7" [ngClass]="brokerData.idProofOrg ? 'on-hover' :''">
+                                <label>ID Proof</label>
+                                <div *ngIf="!brokerData.idProofOrg" class="input-block mb-3 service-upload mb-0">
+                                    <span><img style="height: 50px; width: 100px;" class="avatar-img rounded-circle"
+                                            src="assets/img/icons/drop-icon.svg" alt="upload"></span>
+                                    <h6 class="drop-browse align-center">
+                                    </h6>
+                                    <p class="text-muted">No Data</p>
+                                    <input type="file" multiple="" id="image_sign" disabled>
+                                    <div id="frames"></div>
+
+                                </div>
+                                <div *ngIf="brokerData.idProofOrg" class="input-block mb-3 service-upload mb-0"
+                                    (click)="viewIdOrg()">
+                                    <span class="img_wrp"><img class="img" src="assets/img/icons/pdfic.png"
+                                            alt="upload"></span>
+                                    <p class="text-muted viewt">View Document</p>
+                                    <div id="frames"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl">
+                            <div class="input-block mb-3" [ngClass]="brokerData.companyDetails ? 'on-hover' :''">
+                                <label>Bank Details</label>
+                                <div *ngIf="!brokerData.companyDetails" class="input-block mb-3 service-upload mb-0">
+                                    <span><img class="avatar-img rounded-circle" style="height: 50px; width: 100px;"
+                                            src="assets/img/icons/drop-icon.svg" alt="upload"></span>
+                                    <h6 class="drop-browse align-center">
+                                    </h6>
+                                    <p class="text-muted">No Data</p>
+                                    <input type="file" multiple="" id="image_sign" disabled>
+                                    <div id="frames"></div>
+                                </div>
+                                <div *ngIf="brokerData.companyDetails" class="input-block mb-3 service-upload mb-0"
+                                    (click)="viewBankOrg()">
+                                    <span class="img_wrp"><img class="img" src="assets/img/icons/pdfic.png"
+                                            alt="upload"></span>
+                                    <p class="text-muted viewt">View Document</p>
+                                    <div id="frames"></div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl">
+                            <div class="input-block mb-7" [ngClass]="brokerData.tradeLicenseFileOrg ? 'on-hover' :''">
+                                <label>Valid trade license</label>
+                                <div *ngIf="!brokerData.tradeLicenseFileOrg"
+                                    class="input-block mb-3 service-upload mb-0">
+                                    <span><img style="height: 50px; width: 100px;" class="avatar-img rounded-circle"
+                                            src="assets/img/icons/drop-icon.svg" alt="upload"></span>
+                                    <h6 class="drop-browse align-center">
+                                    </h6>
+                                    <p class="text-muted">No Data</p>
+                                    <input type="file" multiple="" id="image_sign" disabled>
+                                    <div id="frames"></div>
+
+                                </div>
+                                <div *ngIf="brokerData.tradeLicenseFileOrg" class="input-block mb-3 service-upload mb-0"
+                                    (click)="viewIdTrade()">
+                                    <span class="img_wrp"><img class="img" src="assets/img/icons/pdfic.png"
+                                            alt="upload"></span>
+                                    <p class="text-muted viewt">View Document</p>
+                                    <div id="frames"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl">
+                            <div class="input-block mb-3"
+                                [ngClass]="brokerData.reraCertificateFileOrg ? 'on-hover' :''">
+                                <label>Valid RERA Certificate </label>
+                                <div *ngIf="!brokerData.reraCertificateFileOrg"
+                                    class="input-block mb-3 service-upload mb-0">
+                                    <span><img class="avatar-img rounded-circle" style="height: 50px; width: 100px;"
+                                            src="assets/img/icons/drop-icon.svg" alt="upload"></span>
+                                    <h6 class="drop-browse align-center">
+                                    </h6>
+                                    <p class="text-muted">No Data</p>
+                                    <input type="file" multiple="" id="image_sign" disabled>
+                                    <div id="frames"></div>
+                                </div>
+                                <div *ngIf="brokerData.reraCertificateFileOrg"
+                                    class="input-block mb-3 service-upload mb-0" (click)="viewBankRera()">
+                                    <span class="img_wrp"><img class="img" src="assets/img/icons/pdfic.png"
+                                            alt="upload"></span>
+                                    <p class="text-muted viewt">View Document</p>
+                                    <div id="frames"></div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+
+            </div>
+            <div class="text-end">
+                <!-- <button  type="reset" class="btn btn-primary cancel me-2" routerLink="/manageoperation/operation">Cancel</button> -->
+                <button type="submit" type="submit" class="btn btn-primary" data-bs-target="#add_vendor"
+                    routerLink="/vendor-request">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
